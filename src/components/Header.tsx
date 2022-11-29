@@ -1,7 +1,9 @@
 import React from "react";
 import reactLogo from '../assets/react.svg'
-import mGlass from '../assets/icons8-search.svg'
+import mGlass from '../assets/magnifying-glass.svg'
 import background from '../assets/logi.webp'
+import vector from '../assets/vector.svg'
+import user from '../assets/user-6767.svg'
 
 const liStyle = `hover:text-black 
                 hover:bg-white 
@@ -33,7 +35,10 @@ const Header = () => {
                 </li>
             </ul>
             
-            <img src={mGlass} className="h-5 w-5 mt-7 mr-auto"/>
+            <img src={mGlass} className="h-7 w-7 mt-5 mr-auto cursor-pointer"/>
+            <div className="flex">
+            {/* <img src={user} className="h-4 w-4 mr-12 mt-6 cursor-pointer"/> */}
+            </div>
         </header>
     )
 }

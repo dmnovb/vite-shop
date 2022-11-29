@@ -1,0 +1,12 @@
+GET http://localhost:3000/items
+
+
+###
+POST http://localhost:3000/items
+Content-Type: application/json
+
+
+{
+    "name": "razer",
+    "price": 123.99
+}
