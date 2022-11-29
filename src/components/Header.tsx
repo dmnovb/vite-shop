@@ -14,6 +14,15 @@ const liStyle = `hover:text-black
                 p-2 pl-3.5 pr-3.5 pt-1 pb-1 
                 select-none`
                 
+const buttonStyle = `bg-cyan-600 
+                    text-white 
+                    pr-5 pt-3 pb-3 pl-5 
+                    hover:text-black 
+                    hover:bg-white 
+                    transition ease-in-out delay 120
+                    rounded-xl
+                    uppercase
+                    font-bold`
 
 const Header = () => {
     return (
@@ -36,11 +45,12 @@ const Header = () => {
             </ul>
             
             <img src={mGlass} className="h-7 w-7 mt-5 mr-auto cursor-pointer"/>
-            <div className="flex">
-            {/* <img src={user} className="h-4 w-4 mr-12 mt-6 cursor-pointer"/> */}
+            <div className="space-x-3 my-auto mr-5">
+            <button className={buttonStyle}>sign up</button>
+            <button className={buttonStyle}>login</button>
             </div>
         </header>
-    )
+)
 }
 
 export default Header;
