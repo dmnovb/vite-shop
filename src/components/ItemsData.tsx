@@ -1,7 +1,6 @@
 import React from "react";
 import {useEffect, useState} from "react";
 import Carousel from './Carousel'
-import carousel_1 from '../assets/carousel-1.png'
 
 type Item = {
     _id: any; 
@@ -24,10 +23,10 @@ const ItemsData = () => {
 
     return (
         <div>
-           <Carousel/>
             <h1 className="uppercase text-5xl text-center">
                 Advanced Gaming Gear
             </h1>
+            <h2 className="text-center">Play at your peak with the highest performance gaming equipment from Logitech G.</h2>
             <div>{items.map(item => (
                 <li key={item._id}>{item.name}</li>
             ))}

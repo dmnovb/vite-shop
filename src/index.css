@@ -7,8 +7,17 @@
   src: url('./assets/Brown-RegularAlt.ttf');
 }
 
+@font-face {
+  font-family: 'LL Brown Light';
+  src: url('./assets/Brown-Light.ttf');
+}
+
 body {
     background-color: rgb(244, 244, 244);
+}
+
+h2 {
+  font-family: 'LL Brown Light';
 }
 
 * {
