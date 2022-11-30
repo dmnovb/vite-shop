@@ -1,10 +1,13 @@
 import React from "react";
+import shoppingCart from '../assets/shopping-cart-3041.svg'
 import {useEffect, useState} from "react";
+
  
 
 type Item = {
     _id: any; 
     name: string;
+    description: string;
     price: number;
 }
 
@@ -29,12 +32,13 @@ const ItemsData = () => {
                     {item.name}
                 <div className="px-6 py-4">
                     <p className="text-gray-700 text-base">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                    {item.description}
                     </p>
                 </div>
                 <div>
                     ${item.price}
                 </div>
+                <button className="bg-blue-500 uppercase p-3 rounded-md flex"><img className="w-5 h-5 mt-1 mr-1" src={shoppingCart}/> add to cart</button>
                 </div>
             ))}
         </div>
