@@ -1,5 +1,6 @@
 import React from "react";
 import {useEffect, useState} from "react";
+import carousel_1 from '../assets/carousel-1.png'
 
 type Item = {
     _id: any; 
@@ -21,9 +22,14 @@ const ItemsData = () => {
     }, [])
 
     return (
-        <div>{items.map(item => (
-            <li key={item._id}>{item.name}</li>
-        ))}
+        <div>
+            <h1 className="uppercase text-5xl text-center">
+                Advanced Gaming Gear
+            </h1>
+            <div>{items.map(item => (
+                <li key={item._id}>{item.name}</li>
+            ))}
+            </div>
         </div>
     )
 }
