@@ -8,7 +8,15 @@ Content-Type: application/json
 
 {
     "name": "G PRO Wireless",
-    "price": 50.99,
+    "price": 120.99,
     "description": "Ultimate gaming mouse. Ultralow-latency LIGHTSPEED wireless."
-}
+} 
 
+###
+
+GET https://localhost:3000/items/6387563fe1b45d67815d926e
+
+
+###
+
+DELETE https://localhost:3000/items/6387563fe1b45d67815d926e

@@ -1,4 +1,6 @@
 const express = require('express')
+const { isNamedExportBindings } = require('typescript')
+const { findById } = require('../models/item')
 const router = express.Router()
 const Item = require('../models/item')
 
@@ -17,7 +19,6 @@ router.get('/', async (req, res) => {
     }
 })
 
-//create
 router.post('/', async(req, res) => {
     const item = new Item({
         name: req.body.name, 
@@ -33,12 +34,36 @@ router.post('/', async(req, res) => {
 })
 
 //get one
-router.get('/:id', (req,res) => {
-    // res.send(req.params.id)
+router.get('/:id', getItem, (req,res) => {
+    let responseFromGetItem = res.item;
+    res.send(responseFromGetItem)
 })
 
-// router.put('/:id')
+async function getItem (req, res, next){
+    let item
+    try {
+        item = await Item.findById(req.params.id)
+        if(item == null){
+            return res.status(404).message.json(({message: 'Cannot find item'}))
+        } 
+    } catch (error){
+        return res.status(500).message.json(({message: error.message}))
+    }
+    res.item = item
+    next()
+}
 
-// router.delete('/:id')
+router.delete('/:id', async (req, res) => {
+    const deletedItem =  await Item.findById(req.params.id)
+    console.log(deletedItem)
+    if(deletedItem == null){
+       return res.status(404).message.json({message: "item doesn't exist"})
+    } 
+        deletedItem.delete()
+        res.send(deletedItem.name + ' deleted')
+
+})
+
+
 
 module.exports = router
