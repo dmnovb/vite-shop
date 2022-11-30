@@ -1,11 +1,15 @@
 import './App.css'
 import Header from './components/Header'
+import ItemsData from './components/ItemsData'
 
 
 const App = () => {
 
   return (
-    <Header/>
+    <div>
+      <Header/>
+      <ItemsData/>
+    </div>
   )
 }
 
