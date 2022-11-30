@@ -6,12 +6,18 @@ const Item = require('../models/item')
 router.get('/', async (req, res) => {
     try {
         const items = await Item.find()
-        res.json(items)
+        if(items.length === 0){
+            res.json('no items')
+        } else {
+            res.json(items)
+        }
+
     } catch(error) {
         res.status(500).json({message: error.message})
     }
 })
 
+//create
 router.post('/', async(req, res) => {
     const item = new Item({
         name: req.body.name, 

@@ -7,6 +7,6 @@ Content-Type: application/json
 
 
 {
-    "name": "razer",
+    "name": "corsair",
     "price": 123.99
 }
