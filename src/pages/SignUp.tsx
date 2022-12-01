@@ -1,6 +1,6 @@
+import { LockClosedIcon } from '@heroicons/react/20/solid'
 const SignUp = () => {
-    return (
-        <div>ff</div>
-    )
+    
 }
+
 export default SignUp;

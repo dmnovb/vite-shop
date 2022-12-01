@@ -1,10 +1,9 @@
 import React from "react";
 import reactLogo from '../assets/react.svg'
 import mGlass from '../assets/magnifying-glass.svg'
-import background from '../assets/logi.webp'
-import vector from '../assets/vector.svg'
-import user from '../assets/user-6767.svg'
 import { ShoppingCart } from "./ShoppingCart";
+import { Link } from 'react-router-dom'
+
 
 const liStyle = `hover:text-black 
                 hover:bg-white 
@@ -49,7 +48,7 @@ const Header = () => {
 
             <div className="space-x-3 my-auto mr-5">
             <button className={buttonStyle}>sign up</button>
-            <button className={buttonStyle}>login</button>
+            <Link to="/login"><button className={buttonStyle}>login</button></Link>
             </div>
         </header>
 )

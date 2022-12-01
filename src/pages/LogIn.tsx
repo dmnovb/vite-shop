@@ -1,6 +1,10 @@
+import LogInPage from "../components/LogInPage";
+
 const LogIn = () => {
     return (
-        <div>ff</div>
+        <LogInPage/>
     )
 }
+            
+ 
 export default LogIn;
