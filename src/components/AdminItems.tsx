@@ -1,5 +1,6 @@
 import shoppingCart from '../assets/shopping-cart-3041.svg'
 import {useEffect, useState} from "react";
+import { addScaleCorrector } from 'framer-motion';
 
  
 
@@ -12,7 +13,7 @@ type Item = {
 
 const AdminItems = () => {
     const [items, setItems] = useState<Item[]>([])
-    const [response, setResponse] = useState<string>('')
+    // const [response, setResponse] = useState<string>('')
 
 
     async function handleDeleteItems(id:any) {
@@ -21,25 +22,36 @@ const AdminItems = () => {
             method: "DELETE"
         }).then(response => {
             response.json()
-            .then(setResponse)
         })
         window.location.reload()
-        console.log(response)
+ 
     }
-
-    useEffect(() => { 
-        fetch('http://localhost:3000/items/')
-        .then((response) => response.json())
-        .then(setItems)
-
+  
+    useEffect(() => {
+        fetch('http://localhost:3000/items/').then(async (response) => {
+            setItems(await response.json())
+        });
     }, [])
+
+    // console.log(items)
+    // useEffect(() => { 
+    //     console.log("reloading")
+    //     fetch('http://localhost:3000/items/')
+    //             .then(async (response) =>  {
+    //                 console.log(await response.json())
+    //                 return response.json()
+    //             })
+    //             .then(setItems)
+    //     console.log(items.length)
+    // }, [])
 
 
 
     return (
         <div>
         <div className="grid grid-cols-3 gap-2 place-items-center ">
-            {items.map(item => (
+            {items.length === 0 && <div>No items</div>}
+            {items.length !== 0 && items.map(item => (
                 <div key={item._id} className="max-w-sm rounded overflow-hidden shadow-lg p-5">
                     {item.name}
                 <div className="px-6 py-4">
@@ -52,7 +64,9 @@ const AdminItems = () => {
                 </div>
                 <button onClick={() => handleDeleteItems(item._id)} className="bg-red-500 uppercase p-3 rounded-md flex hover:bg-transparent transition ease-in-out delay-120 hover:text-red-500 hover: border-2 hover:border-red-500">Remove item</button>
                 </div>
-            ))}
+            )) } 
+             
+            
         </div> 
         </div>
     )
