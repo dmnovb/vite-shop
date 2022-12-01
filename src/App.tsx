@@ -1,19 +1,16 @@
 import './App.css'
+import {Routes, Route} from 'react-router-dom'
+import Home from './pages/Home'
+import Admin from './pages/Admin'
  
-import Header from './components/Header'
-import ItemsData from './components/ItemsData'
-import Carousel from './components/Carousel'
- 
+
 const App = () => {
 
   return (
-    <div>
-      <Header/>
-      <div className = "image-container">
-        <Carousel/>
-      </div>
-      <ItemsData/>
-    </div>
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/admin' element={<Admin/>}/>
+    </Routes>
     
   )
 }
