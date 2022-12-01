@@ -20,13 +20,15 @@ const ItemsData = () => {
         .then(setItems)
     }, [])
 
+
+
     return (
         <div>
             <h1 className="uppercase text-5xl text-center mb-5">
                 Advanced Gaming Gear
             </h1>
-            <h2 className="text-center mb-5">Play at your peak with the highest performance gaming equipment from Logitech G.</h2>
-        <div className="flex space-x-3">
+            <h2 className="text-center mb-5">Play at your peak with the highest performance gaming equipment from Logitech G.</h2> 
+        <div className="grid grid-cols-3 gap-2 place-items-center ">
             {items.map(item => (
                 <div key={item._id} className="max-w-sm rounded overflow-hidden shadow-lg p-5">
                     {item.name}
@@ -38,10 +40,10 @@ const ItemsData = () => {
                 <div>
                     ${item.price}
                 </div>
-                <button className="bg-blue-500 uppercase p-3 rounded-md flex"><img className="w-5 h-5 mt-1 mr-1" src={shoppingCart}/> add to cart</button>
+                <button className="bg-blue-500 uppercase p-3 rounded-md flex hover:bg-transparent transition ease-in-out delay-120 hover:text-blue-500 hover: border-2 hover:border-blue-500"><img className="w-5 h-5 mt-1 mr-1  fill-blue-500" src={shoppingCart}/> add to cart</button>
                 </div>
             ))}
-        </div>
+        </div> 
         </div>
     )
 }

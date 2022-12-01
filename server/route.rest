@@ -19,4 +19,4 @@ GET https://localhost:3000/items/6387563fe1b45d67815d926e
 
 ###
 
-DELETE https://localhost:3000/items/6387563fe1b45d67815d926e
+DELETE https://localhost:3000/items/6387662fc05bf1bdeb421b47

@@ -4,6 +4,7 @@ import mGlass from '../assets/magnifying-glass.svg'
 import background from '../assets/logi.webp'
 import vector from '../assets/vector.svg'
 import user from '../assets/user-6767.svg'
+import { ShoppingCart } from "./ShoppingCart";
 
 const liStyle = `hover:text-black 
                 hover:bg-white 
@@ -45,6 +46,7 @@ const Header = () => {
             </ul>
             
             <img src={mGlass} className="h-7 w-7 mt-5 mr-auto cursor-pointer"/>
+
             <div className="space-x-3 my-auto mr-5">
             <button className={buttonStyle}>sign up</button>
             <button className={buttonStyle}>login</button>
