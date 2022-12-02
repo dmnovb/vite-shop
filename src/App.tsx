@@ -1,18 +1,17 @@
 import './App.css'
 import {Routes, Route} from 'react-router-dom'
-// import Auth0ProviderWithHistory from './auth/auth0-provider-with-history';
+//import Auth0providerWithHistory from './auth0-provider-with-history'
 import Home from './pages/Home'
 import Admin from './pages/Admin'
 import LogIn from './pages/LogIn'
 import AddItems from './pages/AddItems'
- 
+
 
 const App = () => {
 
   return (
     <Routes>
       {/* <Auth0ProviderWithHistory> */}
-
       <Route path='/' element={<Home/>}/>
       <Route path='/admin' element={<Admin/>}/>
       <Route path='/login' element={<LogIn/>}/>
