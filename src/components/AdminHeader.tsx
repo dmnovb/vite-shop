@@ -1,6 +1,4 @@
-import React from "react";
-import reactLogo from '../assets/react.svg'
-import mGlass from '../assets/magnifying-glass.svg'
+import { Link } from 'react-router-dom'
 
 const liStyle = `hover:text-black 
                 hover:bg-white 
@@ -24,12 +22,13 @@ const buttonStyle = `bg-cyan-600
 const AdminHeader = () => {
     return (
         <header className="mb-8 flex bg-cyan-500">
-            <h1 className="uppercase m-auto p-5 select-none hover:bg-cyan-600 transition ease-in-out delay-75">admin panel</h1>
-            <div className=" space-y-2 cursor-pointer p-5 m-0 hover:bg-cyan-600">
+            <h1 className="uppercase m-auto p-5 select-none">Admin Panel</h1>
+            <Link to="additems"><button className="m-5 uppercase text-white bg-cyan-600 p-4 rounded-lg hover:bg-white hover:text-black transition ease-in-out delay-120">add items</button></Link>
+            {/* <div className=" space-y-2 cursor-pointer p-5 m-0 hover:bg-cyan-600">
                 <div className="w-8 h-0.5 bg-black"></div>
                 <div className="w-8 h-0.5 bg-black"></div>
                 <div className="w-8 h-0.5 bg-black"></div>
-            </div>
+            </div> */}
             {/* <img className="mx-5  ml-auto hover:bg-cyan-600 transition ease-out delay-75 " src={reactLogo}/> */}
             
             {/* <img src={mGlass} className="h-7 w-7 content-center mt-auto mr-auto cursor-pointer"/> */}
