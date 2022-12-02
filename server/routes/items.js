@@ -1,6 +1,4 @@
 const express = require('express')
-const { isNamedExportBindings } = require('typescript')
-const { findById } = require('../models/item')
 const router = express.Router()
 const Item = require('../models/item')
 
@@ -19,18 +17,18 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.post('/', async(req, res) => {
-    const item = new Item({
-        name: req.body.name, 
-        price: req.body.price,
-        description: req.body.description
-    })
-    try {
-        const newItem = await item.save()
-        res.status(201).json(newItem)
-    } catch (error) {
-        res.status(400).json({message: error.message})
-    }
+router.post('/', async(req, res) => {            
+            const item = new Item({
+                name: req.body.name, 
+                price: req.body.price,
+                description: req.body.description
+            })
+            try {
+                const newItem = await item.save()
+                res.status(201).json(newItem)
+            } catch (error) {
+                res.status(400).json({message: error.message})
+            }
 })
 
 //get one
@@ -55,7 +53,6 @@ async function getItem (req, res, next){
 
 router.delete('/:id', async (req, res) => {
     const deletedItem =  await Item.findById(req.params.id)
-    console.log(deletedItem)
     if(deletedItem == null){
        return res.status(404).message.json({message: "item doesn't exist"})
     } 

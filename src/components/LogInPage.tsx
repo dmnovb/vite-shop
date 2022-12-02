@@ -9,9 +9,7 @@ const LogInPage = () => {
               <div>
                 <img
                   className="mx-auto h-12 w-auto"
-                  src={reactLogo}
-                  alt="Your Company"
-                />
+                  src={reactLogo}/>
                 <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
                   Log in to your account
                 </h2>

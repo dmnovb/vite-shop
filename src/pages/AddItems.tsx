@@ -1,4 +1,5 @@
- import { useState } from 'react'
+import { useState } from 'react'
+import reactLogo from '../assets/react.svg'
 
 const AddItems = () => {
     
@@ -26,12 +27,15 @@ const AddItems = () => {
             body: JSON.stringify(itemObject)
         })
         
-        
+        setItemName('')
+        setitemDescription('')
+        setitemPrice('')
     }
    
 
     return (
         <div className="">
+            <img src={reactLogo} className="mx-auto mt-5 h-12 w-auto"/>
             <form className="grid mt-60" onSubmit={handleSubmit}>
                 <label htmlFor="task_name" className="text-center ">Task Name</label>
                 <input value={itemName} onChange={(e) =>  setItemName(e.target.value)}type="text" id="name" className={style} required/>
