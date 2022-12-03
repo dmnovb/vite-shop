@@ -6,7 +6,7 @@ import { useShoppingCart } from "../context/ShoppingCartContext";
 // import { formatCurrency } from "./formatCurrency.ts";
 import 'bootstrap/dist/css/bootstrap.css';
 
-export function ShoppingCart({isOpen:{}, cartItems:{}}) {
+export function ShoppingCart({isOpen:{}, cartItems:[]}) {
     const {closeCart, emptyCart, displayMessage } = useShoppingCart()
     const [checkout, setCheckout] = useState(false)
     
@@ -21,11 +21,11 @@ export function ShoppingCart({isOpen:{}, cartItems:{}}) {
         </div >
         <div  >
             <div>
-            {cartItem.map(item => (
-                <CartItem key={item.id} {...item} />
+            {/* {CartItem.map((item) => (
+                <div key={item.id} {...item} />
             ))}
             <div className="ms-auto fw-bold fs-5">
-            Total{" "}
+            Total{" "} */}
        
             {/* {formatCurrency(
               cartItems.reduce((total, cartItem) => {
@@ -43,6 +43,6 @@ export function ShoppingCart({isOpen:{}, cartItems:{}}) {
             
             </div>
         </div >
-    </div>
+    // </div>
 }
  

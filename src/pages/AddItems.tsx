@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import reactLogo from '../assets/react.svg'
+import AdminHeader from '../components/AdminHeader'
 
 const AddItems = () => {
     
@@ -13,6 +14,8 @@ const AddItems = () => {
     const [itemName, setItemName ] = useState<string>()
     const [itemDescription, setitemDescription] = useState<string>()
     const [itemPrice, setitemPrice] = useState<any>()
+    const [isAdded, setIsAdded] = useState<boolean>(false)
+
     const handleSubmit = (event:any) => {
         event.preventDefault()
         const itemObject = {
@@ -30,11 +33,16 @@ const AddItems = () => {
         setItemName('')
         setitemDescription('')
         setitemPrice('')
+        setIsAdded(true)
+        setTimeout(() => {
+            setIsAdded(false)
+        }, 3000)
     }
    
 
     return (
         <div className="">
+            <p className="mt-5 p-11 uppercase">go back</p>
             <img src={reactLogo} className="mx-auto mt-5 h-12 w-auto"/>
             <form className="grid mt-60" onSubmit={handleSubmit}>
                 <label htmlFor="task_name" className="text-center ">Task Name</label>
@@ -45,6 +53,7 @@ const AddItems = () => {
                 <input value={itemDescription} onChange={(e) =>  setitemDescription(e.target.value)} type="text" id="name" className={style} required/>               
                 <button className="bg-cyan-500 m-auto mt-5 w-56 p-3 rounded-md  transition ease-in-out delay-120 hover:text-cyan-600 hover: border-2 hover:border-cyan-500 hover:bg-transparent ">Submit</button>
             </form>
+            {isAdded && <div className="text-center m-auto mt-11 bg-green-500 w-1/2 p-3 transition ease-in-out delay-75">Item Added</div>}
       </div>
     )
 }

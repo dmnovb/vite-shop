@@ -76,7 +76,7 @@ const LogInPage = () => {
                 </div>
     
                 <div>
-                  {/* <Link to="/"> */}
+                  <Link to="/">
                   <button
                     type="submit"
                     className="group relative flex w-full justify-center rounded-md  bg-cyan-500 text-black hover:bg-transparent hover:border 2 border-cyan-500 hover:text-cyan-500 transition ease-in-out delay-70 py-2 px-4 text-sm font-medium focus:ring-offset-2"
@@ -86,7 +86,7 @@ const LogInPage = () => {
                     </span>
                     Sign in
                   </button>
-                    {/* </Link> */}
+                    </Link>
                 </div>
               </form>
             </div>

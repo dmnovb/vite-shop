@@ -12,7 +12,7 @@ type Item = {
 }
 
 const AdminItems = () => {
-    const [items, setItems] = useState<Item[]>([])
+    const [items, setItems] = useState<Item[]>([]) 
     // const [response, setResponse] = useState<string>('')
 
 
@@ -32,20 +32,6 @@ const AdminItems = () => {
             setItems(await response.json())
         });
     }, [])
-
-    // console.log(items)
-    // useEffect(() => { 
-    //     console.log("reloading")
-    //     fetch('http://localhost:3000/items/')
-    //             .then(async (response) =>  {
-    //                 console.log(await response.json())
-    //                 return response.json()
-    //             })
-    //             .then(setItems)
-    //     console.log(items.length)
-    // }, [])
-
-
 
     return (
         <div>
