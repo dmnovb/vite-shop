@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import reactLogo from '../assets/react.svg'
-import AdminHeader from '../components/AdminHeader'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { Link } from 'react-router-dom'
 
 const AddItems = () => {
     
@@ -41,15 +43,18 @@ const AddItems = () => {
    
 
     return (
-        <div className="">
-            <p className="mt-5 p-11 uppercase">go back</p>
+        <div>
+           <Link to="/admin"><p className="mt-5 p-11 uppercase hover:underline cursor-pointer">
+                <FontAwesomeIcon icon={faArrowLeft} className="mr-2"/>
+                Go back
+            </p></Link> 
             <img src={reactLogo} className="mx-auto mt-5 h-12 w-auto"/>
             <form className="grid mt-60" onSubmit={handleSubmit}>
-                <label htmlFor="task_name" className="text-center ">Task Name</label>
+                <label htmlFor="task_name" className="text-center mb-5">Task Name</label>
                 <input value={itemName} onChange={(e) =>  setItemName(e.target.value)}type="text" id="name" className={style} required/>
-                <label htmlFor="task_price" className="text-center">Task Price</label>
+                <label htmlFor="task_price" className="text-center mb-5 mt-5">Task Price</label>
                 <input value={itemPrice} onChange={(e) => setitemPrice(e.target.value)} type="number" id="name" className={style}  required/>                
-                <label htmlFor="task_description" className="text-center">Task Description</label>
+                <label htmlFor="task_description" className="text-center mb-5 mt-5">Task Description</label>
                 <input value={itemDescription} onChange={(e) =>  setitemDescription(e.target.value)} type="text" id="name" className={style} required/>               
                 <button className="bg-cyan-500 m-auto mt-5 w-56 p-3 rounded-md  transition ease-in-out delay-120 hover:text-cyan-600 hover: border-2 hover:border-cyan-500 hover:bg-transparent ">Submit</button>
             </form>
