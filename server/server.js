@@ -20,6 +20,7 @@ db.once('open', () => {
 
 app.use(express.json())
 
+
 const itemsRouter = require('./routes/items') 
 app.use('/items', itemsRouter)
 
