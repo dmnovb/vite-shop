@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-const { ModuleResolutionKind } = require("typescript")
 
 const itemSchema = new mongoose.Schema( {
     name: {
