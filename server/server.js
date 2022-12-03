@@ -24,6 +24,8 @@ app.use(express.json())
 const itemsRouter = require('./routes/items') 
 app.use('/items', itemsRouter)
 
-app.listen(3000, () => {
+const port = 3000
+
+app.listen(port, () => {
     console.log("server started")
 })

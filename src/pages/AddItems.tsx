@@ -44,7 +44,7 @@ const AddItems = () => {
 
     return (
         <div>
-           <Link to="/admin"><p className="mt-5 p-11 uppercase hover:underline cursor-pointer">
+           <Link to="/admin"><p className="mt-5 p-5 uppercase hover:underline cursor-pointer">
                 <FontAwesomeIcon icon={faArrowLeft} className="mr-2"/>
                 Go back
             </p></Link> 
