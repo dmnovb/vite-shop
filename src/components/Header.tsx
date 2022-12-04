@@ -1,7 +1,8 @@
 import React from "react";
 import reactLogo from '../assets/react.svg'
 import mGlass from '../assets/magnifying-glass.svg'
-import { ShoppingCart } from "./ShoppingCart";
+// import ShoppingCart  from "./ShoppingCart";
+import shoppingCart from '../assets/shopping-cart-3041.svg'
 import { Link } from 'react-router-dom'
 
 
@@ -27,7 +28,6 @@ const buttonStyle = `bg-cyan-600
 const Header = () => {
     return (
         <header className="mb-8 flex bg-cyan-500">
-            {/* <img className="w-full h-full bg-cover relative" src={background} /> */}
             <img className="mx-5 py-5 ml-auto" src={reactLogo}/>
             <ul className="flex gap-3 mx-auto my-auto uppercase text-white font-bold text-base p-2">
                 <li className={liStyle}>
@@ -44,8 +44,8 @@ const Header = () => {
                 </li>
             </ul>
             
-            <img src={mGlass} className="h-7 w-7 mt-5 mr-auto cursor-pointer"/>
-
+            <img src={mGlass} className="h-7 w-7 mt-5 mr-5 cursor-pointer"/>
+           <Link to="/Cart"><img className="w-5 h-5 mr-24 mt-6" src={shoppingCart} /></Link> 
             <div className="space-x-3 my-auto mr-5">
             <button className={buttonStyle}>sign up</button>
             <Link to="/login"><button className={buttonStyle}>login</button></Link>

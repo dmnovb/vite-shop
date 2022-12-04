@@ -49,7 +49,7 @@ const AddItems = () => {
                 Go back
             </p></Link> 
             <img src={reactLogo} className="mx-auto mt-5 h-12 w-auto"/>
-            <form className="grid mt-60" onSubmit={handleSubmit}>
+            <form className="grid mt-60" encType="multipeart/form-data" onSubmit={handleSubmit}>
                 <label htmlFor="task_name" className="text-center mb-5">Task Name</label>
                 <input value={itemName} onChange={(e) =>  setItemName(e.target.value)}type="text" id="name" className={style} required/>
                 <label htmlFor="task_price" className="text-center mb-5 mt-5">Task Price</label>

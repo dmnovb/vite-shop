@@ -24,7 +24,7 @@ const ItemsData = () => {
 
     return (
         <div>
-            <h1 className="uppercase text-5xl text-center mb-5">
+            <h1 className="uppercase text-5xl text-center mt-2 mb-5">
                 Advanced Gaming Gear
             </h1>
             <h2 className="text-center mb-5">Play at your peak with the highest performance gaming equipment from Logitech G.</h2> 

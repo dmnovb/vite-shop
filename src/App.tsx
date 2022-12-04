@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Admin from './pages/Admin'
 import LogIn from './pages/LogIn'
 import AddItems from './pages/AddItems'
+import Cart from './pages/Cart'
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
       <Route path='/admin' element={<Admin/>}/>
       <Route path='/login' element={<LogIn/>}/>
       <Route path='admin/additems' element={<AddItems/>}/>
+      <Route path='cart' element={<Cart/>}/>
       {/* </Auth0ProviderWithHistory> */}
     </Routes>
     
