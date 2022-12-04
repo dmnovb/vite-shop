@@ -1,6 +1,8 @@
 import React from "react";
 import shoppingCart from '../assets/shopping-cart-3041.svg'
 import {useEffect, useState} from "react";
+import Cart from '../pages/Cart'
+import { CartItem } from "./CartItem";
 
  
 
@@ -11,8 +13,18 @@ type Item = {
     price: number;
 }
 
+const buttonStyle = `bg-blue-500 
+                    uppercase p-3 
+                    rounded-md flex 
+                    hover:bg-transparent 
+                    transition ease-in-out 
+                    delay-120 hover:text-blue-500 
+                    hover: border-2 
+                    hover:border-blue-500`
+
 const ItemsData = () => {
     const [items, setItems] = useState<Item[]>([])
+    const [cartItems, setCartItems] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:3000/items')
@@ -20,8 +32,9 @@ const ItemsData = () => {
         .then(setItems)
     }, [])
 
+    console.log(cartItems)
 
-
+    
     return (
         <div>
             <h1 className="uppercase text-5xl text-center mt-2 mb-5">
@@ -40,8 +53,7 @@ const ItemsData = () => {
                 <div>
                     ${item.price}
                 </div>
-                <button className="bg-blue-500 uppercase p-3 rounded-md flex hover:bg-transparent transition ease-in-out delay-120 hover:text-blue-500 hover: border-2 hover:border-blue-500"><img className="w-5 h-5 mt-1 mr-1  fill-blue-500" src={shoppingCart}/> add to cart</button>
-
+                <button onClick={() => cartItems.push(item._id)} className={buttonStyle}><img className="w-5 h-5 mt-1 mr-1  fill-blue-500" src={shoppingCart}/> add to cart</button>
                 </div>
             ))}
         </div> 
