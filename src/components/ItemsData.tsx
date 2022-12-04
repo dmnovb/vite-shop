@@ -1,12 +1,19 @@
 import React from "react";
 import shoppingCart from '../assets/shopping-cart-3041.svg'
 import {useEffect, useState} from "react";
-import Cart from '../pages/Cart'
-import { CartItem } from "./CartItem";
+import Cart from './Cart'
+import { object } from "yup/lib/locale";
+// import { CartItem } from "./CartItem";
 
  
 
 type Item = {
+    _id: any; 
+    name: string;
+    description: string;
+    price: number;
+}
+type CartItem = {
     _id: any; 
     name: string;
     description: string;
@@ -24,17 +31,15 @@ const buttonStyle = `bg-blue-500
 
 const ItemsData = () => {
     const [items, setItems] = useState<Item[]>([])
-    const [cartItems, setCartItems] = useState([])
+    const [cartItems, setCartItems] = useState<CartItem[]>([])
 
     useEffect(() => {
         fetch('http://localhost:3000/items')
         .then((response) => response.json())
         .then(setItems)
+
     }, [])
 
-    console.log(cartItems)
-
-    
     return (
         <div>
             <h1 className="uppercase text-5xl text-center mt-2 mb-5">
@@ -53,10 +58,16 @@ const ItemsData = () => {
                 <div>
                     ${item.price}
                 </div>
-                <button onClick={() => cartItems.push(item._id)} className={buttonStyle}><img className="w-5 h-5 mt-1 mr-1  fill-blue-500" src={shoppingCart}/> add to cart</button>
+                <button onClick={() => setCartItems([...cartItems, item._id])} className={buttonStyle}><img className="w-5 h-5 mt-1 mr-1  fill-blue-500" src={shoppingCart}/> add to cart</button>
                 </div>
             ))}
         </div> 
+        <div className="flex" >
+        {Object.keys(cartItems).map((cartItem, index) => (
+            <p key={index}>{cartItem}</p>
+            ))}
+        </div>
+        <Cart items={cartItems} />
         </div>
     )
 }

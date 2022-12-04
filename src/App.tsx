@@ -5,21 +5,21 @@ import Home from './pages/Home'
 import Admin from './pages/Admin'
 import LogIn from './pages/LogIn'
 import AddItems from './pages/AddItems'
-import Cart from './pages/Cart'
+import ShoppingCart from './pages/ShoppingCart'
 
 
 const App = () => {
 
   return (
-    <Routes>
-      {/* <Auth0ProviderWithHistory> */}
-      <Route path='/' element={<Home/>}/>
-      <Route path='/admin' element={<Admin/>}/>
-      <Route path='/login' element={<LogIn/>}/>
-      <Route path='admin/additems' element={<AddItems/>}/>
-      <Route path='cart' element={<Cart/>}/>
-      {/* </Auth0ProviderWithHistory> */}
-    </Routes>
+    <div>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/admin' element={<Admin/>}/>
+        <Route path='/login' element={<LogIn/>}/>
+        <Route path='admin/additems' element={<AddItems/>}/>
+        <Route path='cart' element={<ShoppingCart/>}/>
+      </Routes>
+    </div>
     
   )
 }
