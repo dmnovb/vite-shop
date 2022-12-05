@@ -1,6 +1,7 @@
 import React from "react";
 import shoppingCart from '../assets/shopping-cart-3041.svg'
 import {useEffect, useState} from "react";
+import ShoppingCart from "../pages/ShoppingCart";
 import Cart from './Cart'
 import { object } from "yup/lib/locale";
 // import { CartItem } from "./CartItem";
@@ -67,7 +68,7 @@ const ItemsData = () => {
             <p key={index}>{cartItem}</p>
             ))}
         </div>
-        <Cart items={cartItems} />
+            <Cart/>
         </div>
     )
 }

@@ -1,6 +1,7 @@
-import shoppingCart from '../assets/shopping-cart-3041.svg'
+// import shoppingCart from '../assets/shopping-cart-3041.svg'
 import {useEffect, useState} from "react";
 import { addScaleCorrector } from 'framer-motion';
+import React from 'react'
 
  
 

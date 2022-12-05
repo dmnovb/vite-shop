@@ -45,7 +45,7 @@ const Header = () => {
             </ul>
             
             <img src={mGlass} className="h-7 w-7 mt-5 mr-5 cursor-pointer"/>
-           <Link to="/Cart"><img className="w-5 h-5 mr-24 mt-6" src={shoppingCart} /></Link> 
+           <Link to="/cart"><img className="w-5 h-5 mr-24 mt-6" src={shoppingCart} /></Link> 
             <div className="space-x-3 my-auto mr-5">
             <button className={buttonStyle}>sign up</button>
             <Link to="/login"><button className={buttonStyle}>login</button></Link>

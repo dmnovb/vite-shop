@@ -1,5 +1,5 @@
 import { useShoppingCart } from "../context/ShoppingCartContext";
-
+import React from 'react'
 export function CartItem(item:any) {
     const {removeFromCart} = useShoppingCart()
 
