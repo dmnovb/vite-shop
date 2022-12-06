@@ -39,14 +39,11 @@ const ItemsData = () => {
         .then(setItems)
 
     }, [])
-
-    // let a = Object.values(cartItems[0])
-    // for(let i = 0; i < cartItems.length; i++){
-    //     // console.log(cartItems[i]._id)
-    // }
-    
-    localStorage.setItem('items', JSON.stringify(cartItems))
-    console.log(cartItems)
+ 
+    function testy(item:CartItem) {
+        setCartItems([...cartItems, item])
+        localStorage.setItem('items', JSON.stringify(cartItems))
+    }
 
     return (
         <div>
@@ -67,7 +64,7 @@ const ItemsData = () => {
                 <div>
                     ${item.price}
                 </div>
-                <button onClick={() => setCartItems([...cartItems, item])} className={buttonStyle}><img className="w-5 h-5 mt-1 mr-1  fill-blue-500" src={shoppingCart}/> add to cart</button>
+                <button onClick={() => testy(item)} className={buttonStyle}><img className="w-5 h-5 mt-1 mr-1  fill-blue-500" src={shoppingCart}/> add to cart</button>
                 </div>
             ))}
         </div> 
