@@ -1,9 +1,6 @@
 import React from "react";
 import shoppingCart from '../assets/shopping-cart-3041.svg'
 import {useEffect, useState} from "react";
-import ShoppingCart from "../pages/ShoppingCart";
-import Cart from './Cart'
-import { object } from "yup/lib/locale";
 // import { CartItem } from "./CartItem";
 
  
@@ -59,16 +56,15 @@ const ItemsData = () => {
                 <div>
                     ${item.price}
                 </div>
-                <button onClick={() => setCartItems([...cartItems, item._id])} className={buttonStyle}><img className="w-5 h-5 mt-1 mr-1  fill-blue-500" src={shoppingCart}/> add to cart</button>
+                <button onClick={() => setCartItems([...cartItems, item])} className={buttonStyle}><img className="w-5 h-5 mt-1 mr-1  fill-blue-500" src={shoppingCart}/> add to cart</button>
                 </div>
             ))}
         </div> 
-        <div className="flex" >
-        {Object.keys(cartItems).map((cartItem, index) => (
-            <p key={index}>{cartItem}</p>
+        {/* <div className="flex" >
+        {Object.keys(cartItems).map((cartItem, i) => (
+            <p key={i}>{cartItem}</p>
             ))}
-        </div>
-            <Cart/>
+        </div> */}
         </div>
     )
 }
