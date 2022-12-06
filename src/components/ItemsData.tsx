@@ -1,7 +1,9 @@
 import React from "react";
 import shoppingCart from '../assets/shopping-cart-3041.svg'
 import {useEffect, useState} from "react";
+import Cart from './Cart'
 // import { CartItem } from "./CartItem";
+import ShoppingCart from '../pages/ShoppingCart'
 
  
 
@@ -38,8 +40,17 @@ const ItemsData = () => {
 
     }, [])
 
+    // let a = Object.values(cartItems[0])
+    // for(let i = 0; i < cartItems.length; i++){
+    //     // console.log(cartItems[i]._id)
+    // }
+    
+    localStorage.setItem('items', JSON.stringify(cartItems))
+    console.log(cartItems)
+
     return (
         <div>
+            
             <h1 className="uppercase text-5xl text-center mt-2 mb-5">
                 Advanced Gaming Gear
             </h1>
@@ -60,10 +71,10 @@ const ItemsData = () => {
                 </div>
             ))}
         </div> 
-        {/* <div className="flex" >
-        {Object.keys(cartItems).map((cartItem, i) => (
-            <p key={i}>{cartItem}</p>
-            ))}
+        {/* <div>
+        {Object.values(cartItems).map((item,idx) => (
+            <Cart key={idx} cartItems={item.name}/>
+        ))}
         </div> */}
         </div>
     )
