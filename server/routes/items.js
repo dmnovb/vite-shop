@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const Item = require('../models/item')
+ 
 
 //get all
 router.get('/', async (req, res) => {
+    console.log("inside home")
     try {
         const items = await Item.find()
         if(items.length === 0){
@@ -33,6 +35,7 @@ router.post('/', async(req, res) => {
 
 //get one
 router.get('/:id', getItem, (req,res) => {
+    console.log("inside id")
     let responseFromGetItem = res.item;
     res.send(responseFromGetItem)
 })
@@ -45,13 +48,13 @@ async function getItem (req, res, next){
             return res.status(404).message.json(({message: 'Cannot find item'}))
         } 
     } catch (error){
-        return res.status(500).message.json(({message: error.message}))
+        // return res.status(500).message.json(({message: error.message}))
     }
     res.item = item
     next()
 }
 
-router.delete('/:id', async (req, res) => {
+router.delete('/items/:id', async (req, res) => {
     const deletedItem =  await Item.findById(req.params.id)
     if(deletedItem == null){
        return res.status(404).message.json({message: "item doesn't exist"})
@@ -60,7 +63,5 @@ router.delete('/:id', async (req, res) => {
         res.send(deletedItem.name + ' deleted')
 
 })
-
-
 
 module.exports = router
