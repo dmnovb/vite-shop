@@ -48,7 +48,7 @@ export const Carousel = () => {
           key={page}
           src={images[imageIndex]}
           custom={direction}
-          className="ml-28"
+          className="mb-11"
          
           transition={{
             x: { type: "spring", stiffness: 300, damping: 30 },

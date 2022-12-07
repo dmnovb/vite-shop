@@ -10,7 +10,7 @@ import ShoppingCart from '../pages/ShoppingCart'
 type Item = {
     _id: any; 
     name: string;
-    description: string;
+    description: string,
     price: number;
 }
 type CartItem = {
@@ -37,13 +37,10 @@ const ItemsData = () => {
         fetch('http://localhost:3000/items')
         .then((response) => response.json())
         .then(setItems)
-
     }, [])
- 
-    function testy(item:CartItem) {
-        setCartItems([...cartItems, item])
-        localStorage.setItem('items', JSON.stringify(cartItems))
-    }
+    
+    console.log(cartItems)
+    
 
     return (
         <div>
@@ -64,15 +61,17 @@ const ItemsData = () => {
                 <div>
                     ${item.price}
                 </div>
-                <button onClick={() => testy(item)} className={buttonStyle}><img className="w-5 h-5 mt-1 mr-1  fill-blue-500" src={shoppingCart}/> add to cart</button>
+                
+                <button onClick={() => {
+                    setCartItems([...cartItems, item]);  
+                    // localStorage.clear()
+                    localStorage.setItem('items', JSON.stringify(cartItems));
+                    }} className={buttonStyle}><img className="w-5 h-5 mt-1 mr-1  fill-blue-500" src={shoppingCart}/> add to cart</button>
+                
                 </div>
             ))}
         </div> 
-        {/* <div>
-        {Object.values(cartItems).map((item,idx) => (
-            <Cart key={idx} cartItems={item.name}/>
-        ))}
-        </div> */}
+         
         </div>
     )
 }
