@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const cartItemSchema = new mongoose.Schema( {
     itemId:{
-        type: Number,
+        type: Object,
         required: true  
     },
     count: {

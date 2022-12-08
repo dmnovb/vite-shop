@@ -29,7 +29,8 @@ const AdminItems = () => {
     }
   
     useEffect(() => {
-        fetch('http://localhost:3000/items/').then(async (response) => {
+        fetch('http://localhost:3000/items/')
+        .then(async (response) => {
             setItems(await response.json())
         });
     }, [])

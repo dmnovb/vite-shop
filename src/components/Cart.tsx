@@ -1,35 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
  
 import Header from './Header'
 import remove_item from '../assets/remove_item.svg'
  
+type cartItem = {
+    itemId: any,
+    count: number
+}
 
-const Cart = (props:any) => {
-    
-    let all = localStorage.getItem('items')
-    let allarray = JSON.parse(all ? all : '[]')
-     
-    let hash = new Map()
-    console.log( "contents of all array:" )
-    console.log(    allarray )
-    for(let i = 0; i < allarray.length; i++) {
-        let found = hash.get(allarray[i]._id)
-        if(found == undefined) {
-            let insert = {
-                        name: allarray[i].name,
-                        price: allarray[i].price,
-                        count: 1
-                    }
-            hash.set(allarray[i]._id, insert)
-        } else {
-            found.count += 1             
-        }
+type Item = {
+    _id: any; 
+    name: string;
+    description: string,
+    price: number;
+}
+
+const Cart = () => {
+    const [cartItems, setCartItems] = useState<cartItem[]>([])
+    const [itemsById, SetItemsById] = useState<Item[]>([])
+
+
+
+    useEffect(() => {
+        fetch('http://localhost:3000/cartItems/')
+        .then(async (response) => {
+            setCartItems(await response.json())
+        });
+    }, [])
+
+
+
+    useEffect(() => {
+        for(let i = 0; i < cartItems.length; i++){
+            fetch(`http://localhost:3000/items/` + cartItems[i].itemId)
+            .then(async (response) => {
+            SetItemsById(await response.json())
+        });    
     }
-   
-    let arrayOfObjects = Array.from(hash.entries())
-    
-    console.log( "contents of hashed array:" )
-    console.log(    arrayOfObjects )
+    }, [])
+  
+console.log(itemsById._id)
+// console.log(itemsById)
+
     return (
         <div>
         <Header/>
@@ -42,16 +54,17 @@ const Cart = (props:any) => {
                     <h1>Count</h1>
                     <h1>Total</h1>
                 </div>
-        
-                {arrayOfObjects.map((item:any) => (
                     <div className='grid grid-cols-5 text-center mt-4'>
-                        <h1>{item[1].name}</h1>
-                        <h1>${item[1].price}</h1>
-                        <h1>{item[1].count}</h1>
-                        <h1>${item[1].price * item[1].count}</h1>
+                    {/* {itemsById.map(item => (
+                        <h1>{item.name}</h1>
+                    ))} */}
+
+                        <h1>test item</h1>
+                        <h1>$12</h1>
+                        <h1>2</h1>
+                        <h1>$24</h1>
                         <button className='mr-auto transition ease-in-out delay-55 hover:bg-gray-300 p-1 rounded-full'><img className='w-5 h-5' src={remove_item}/></button>
                     </div>
-                ))}
             </div>
         </div>   
     )
