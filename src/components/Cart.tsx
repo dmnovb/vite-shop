@@ -20,7 +20,6 @@ const Cart = () => {
     const [itemsById, SetItemsById] = useState<Item[]>([])
 
 
-
     useEffect(() => {
         fetch('http://localhost:3000/cartItems/')
         .then(async (response) => {
@@ -28,19 +27,22 @@ const Cart = () => {
         });
     }, [])
 
-
-
     useEffect(() => {
-        for(let i = 0; i < cartItems.length; i++){
-            fetch(`http://localhost:3000/items/` + cartItems[i].itemId)
-            .then(async (response) => {
-            SetItemsById(await response.json())
-        });    
-    }
+            for(let i = 0; i < cartItems.length; i++){
+                fetch(`http://localhost:3000/items/` + cartItems[i].itemId)
+                .then(async (response) => {
+                SetItemsById(await response.json())
+            });    
+        }
     }, [])
-  
-console.log(itemsById._id)
-// console.log(itemsById)
+
+
+    // for(let i = 0; i < itemsById.length; i++){
+    //     console.log(itemsById[i])
+    // }
+
+    // console.log(itemsById)
+    console.log(cartItems)
 
     return (
         <div>
@@ -54,17 +56,15 @@ console.log(itemsById._id)
                     <h1>Count</h1>
                     <h1>Total</h1>
                 </div>
+                
                     <div className='grid grid-cols-5 text-center mt-4'>
-                    {/* {itemsById.map(item => (
-                        <h1>{item.name}</h1>
-                    ))} */}
-
-                        <h1>test item</h1>
-                        <h1>$12</h1>
-                        <h1>2</h1>
-                        <h1>$24</h1>
+                        <h1>{itemsById.name}</h1>
+                        <h1>${itemsById.price}</h1>
+                        <h1>{cartItems[0].count}</h1>
+                        <h1>${itemsById.price * cartItems[0].count}</h1>
                         <button className='mr-auto transition ease-in-out delay-55 hover:bg-gray-300 p-1 rounded-full'><img className='w-5 h-5' src={remove_item}/></button>
                     </div>
+                    
             </div>
         </div>   
     )

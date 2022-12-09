@@ -38,8 +38,7 @@ const ItemsData = () => {
         .then((response) => response.json())
         .then(setItems)
     }, [])
-    
-    console.log(cartItems)
+
     
 
     return (
